@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>The Asciiverse</title>
+
+<style>
+
+#text_1 p{ margin:0; display: inline;}
+
+#smithy{ margin-top: 600px; margin-left: 1200px; display: none;}
+
+</style>
+
+</head>
+<body>
+
+<script>
+var totalLetters = 0;
+var Cumulative = "";
+localStorage.setItem('Letters','')
+localStorage.setItem('Items','')
+</script>
+
+<div id="text_1">
+<p>In this universe, the most powerful things are</p>
+<p onclick="if (localStorage.getItem('Letters').includes('w') == false) {this.innerHTML='[]';addLetter('w');totalLetters += 1;smithyButton()};">[w]</p>
+<p onclick="if (localStorage.getItem('Letters').includes('o') == false) {this.innerHTML='[]';addLetter('o');totalLetters += 1;smithyButton()};">[o]</p>
+<p onclick="if (localStorage.getItem('Letters').includes('r') == false) {this.innerHTML='[]';addLetter('r');totalLetters += 1;smithyButton()};">[r]</p>
+<p onclick="if (localStorage.getItem('Letters').includes('d') == false) {this.innerHTML='[]';addLetter('d');totalLetters += 1;smithyButton()};">[d]</p>
+<p onclick="if (localStorage.getItem('Letters').includes('s') == false) {this.innerHTML='[]';addLetter('s');totalLetters += 1;smithyButton()};">[s]</p>
+</div>
+
+<p id="Test"></p>
+
+<button id="smithy" onclick="window.location.href='smithy.html';">Visit Smithy</button>
+
+<script>
+
+function smithyButton() {
+if (totalLetters > 4) {
+document.getElementById("smithy").style.display = "unset";
+}}
+
+function addLetter(X){
+localStorage.setItem("Letters",Cumulative+X);
+Cumulative = localStorage.getItem("Letters");
+}
+</script>
+
+</body>
+</html>
+
+<!--
+Inspiration:
+https://www.youtube.com/watch?v=GJl69ke6wv8
+https://candybox2.github.io/
+https://adarkroom.doublespeakgames.com/
+https://www.ascii-code.com/
+-->
