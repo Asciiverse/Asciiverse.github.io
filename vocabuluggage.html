@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Your Wideranging Vocabulary</title>
+<style>
+#opened {
+display: none;
+margin-top: 300px;
+margin-left: 670px;}
+.ascii {
+font-family: monospace;
+white-space: pre;
+margin-top: 300px;
+margin-left: 670px;
+height:min-content;
+width:min-content;}
+#vocab {
+letter-spacing: 20px;}
+#moneycount
+#closed{
+cursor: pointer;}
+#rArrow {
+margin-left: 1490px;
+}
+#lArrow{
+display: none;
+}
+#wallet{
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+<button onclick="window.location.href='smithy.html';">Go to smithy</button>
+<p></p>
+<button onclick='left()' id="lArrow">←</button><button onclick='right()'id="rArrow">→</button>
+<div class="ascii">
+<div id="luggage">
+<p onclick="document.getElementById('vocab').innerHTML = localStorage.getItem('Letters');document.getElementById('closed').style.display = 'none';document.getElementById('opened').style.display = 'inline';" id="closed">
+          ____
+     .---[[__]]----.
+    ;-------------.|
+    |             ||
+    |             ||
+    |             ||
+    |_____________|/
+</p>
+<p id="opened">
+          ____
+     .---[[__]]----.
+    ;-------------.|
+    |             ||
+    |             ||
+    |             ||
+   /|____________/|/
+  / /           / /
+ /_____________/ /
+[______________]/
+</p>
+</div>
+<div onclick='document.getElementById("moneyCount").innerHTML = "$"+localStorage.getItem("money");' style='display:none' id="wallet">
+       ________________
+      /,~~~~~~~~~~~~~,/
+ ____//   -{\_}-    //_      
+(___//_____________//_/.
+|/-------------------- ]
+|/               _____'|
+|/              [   _   \
+|/              {  (_)  | 
+|/              [_______/
+|/                    ;|
+\(____________________']
+</div>
+<p id="vocab"></p>
+<p id="moneyCount"></p>
+<div style='display:none' id="pouch">
+3
+</div>
+<div style='display:none' id="vault">
+4
+</div>
+</div>
+<script>
+var sector = 1;
+function right() {
+sector += 1;
+if (sector == 2) {
+document.getElementById('lArrow').style.display = 'inline';
+document.getElementById('rArrow').style.marginLeft = '1461px';
+document.getElementById('luggage').style.display = 'none';
+document.getElementById('vocab').style.display = 'none';
+document.getElementById('wallet').style.display = 'inline';
+document.getElementById('moneyCount').style.display = 'inline';
+} else if (sector == 3) {
+document.getElementById('wallet').style.display = 'none';
+document.getElementById('moneyCount').style.display = 'none';
+document.getElementById('pouch').style.display = 'inline';
+} else if (sector == 4){
+document.getElementById('pouch').style.display = 'none';
+document.getElementById('vault').style.display = 'inline';
+document.getElementById('rArrow').style.display = 'none';
+}}
+function left() {
+sector -= 1;
+if (sector == 1) {
+document.getElementById('lArrow').style.display = 'none';
+document.getElementById('rArrow').style.marginLeft = '1490px';
+document.getElementById('luggage').style.display = 'inline';
+document.getElementById('vocab').style.display = 'inline';
+document.getElementById('wallet').style.display = 'none';
+document.getElementById('moneyCount').style.display = 'none';
+} else if (sector == 2) {
+document.getElementById('wallet').style.display = 'inline';
+document.getElementById('moneyCount').style.display = 'inline';
+document.getElementById('pouch').style.display = 'none';
+} else if (sector == 3){
+document.getElementById('pouch').style.display = 'inline';
+document.getElementById('vault').style.display = 'none';
+document.getElementById('rArrow').style.display = 'inline';
+}
+}
+</script>
+</body>
+</html>
+<!--
+Letters:abcdefghijklmnopqrstuvwxyzšœžàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿƒªABCDEFGHIJKLMNOPQRSTUVWXYZŠŒŽŸÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞß
+Numbers:1234567890¼½¾³²¹º
+Punctiation: .!?,:;- --[]{}()'"…
+Symbols:#$%&*+/<=>@\^_~|€†‡‰•¡¢£¤¥¦§¨«¬­¯°±µ¶»×÷¿
+-->
