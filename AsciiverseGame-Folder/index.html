@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.png">
+<title>The Asciiverse</title>
+<style>
+.pointer{
+cursor: pointer;}
+#info{
+margin-top: 100px;}
+#text_1 p{
+display: inline;}
+#smithy{
+margin-top: 300px; margin-left: 1200px; display: none;}
+</style>
+</head>
+<body>
+<script>
+var totalLetters = 0;
+var Cumulative = "";
+localStorage.setItem('square', 61);
+localStorage.setItem('Letters','')
+localStorage.setItem('Items','')
+</script>
+<div id="text_1">
+<p>In this universe, the most powerful things are</p>
+<p class="pointer" onclick="if (localStorage.getItem('Letters').includes('w') == false) {this.style.display='none';addLetter('w');totalLetters += 1;smithyButton()};">w</p><p class="pointer" onclick="if (localStorage.getItem('Letters').includes('o') == false) {this.style.display='none';addLetter('o');totalLetters += 1;smithyButton()};">o</p><p class="pointer" onclick="if (localStorage.getItem('Letters').includes('r') == false) {this.style.display='none';addLetter('r');totalLetters += 1;smithyButton()};">r</p><p class="pointer" onclick="if (localStorage.getItem('Letters').includes('d') == false) {this.style.display='none';addLetter('d');totalLetters += 1;smithyButton()};">d</p><p class="pointer" onclick="if (localStorage.getItem('Letters').includes('s') == false) {this.style.display='none';addLetter('s');totalLetters += 1;smithyButton()};">s</p>
+</div> 
+<p id="info" style="display: none;">Obtain as many letters as you can. Some are collectable, some aren't</p>
+<button id="smithy" onclick="window.location.href='smithy.html';">Visit Smithy</button>
+<script>
+localStorage.setItem('money','5')
+localStorage.setItem('punc','')
+localStorage.setItem('numbers','')
+function smithyButton() {
+if (totalLetters > 4) {
+document.getElementById("smithy").style.display = "unset";}}
+function addLetter(X){
+localStorage.setItem("letters",Cumulative+X);
+Cumulative = localStorage.getItem("letters");
+document.getElementById('info').style.display = 'inline-block';}
+</script>
+</body>
+</html>
+
+<!--
+Inspiration:
+https://www.youtube.com/watch?v=GJl69ke6wv8
+https://candybox2.github.io/
+https://adarkroom.doublespeakgames.com/
+https://www.ascii-code.com/
+https://ascii.co.uk/
+https://www.asciiart.eu/
+-->
